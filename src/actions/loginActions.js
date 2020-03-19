@@ -1,3 +1,4 @@
+import { db } from '../config/db'
 import { setUser } from "./authActions";
 
 export const SET_EMAIL = 'SET_EMAIL';
@@ -48,7 +49,7 @@ export const validateEmail = (email) => {
     return async dispatch => {
         dispatch(validateEmailBegin());
         try {
-            let res = await fetch('http://localhost:3000/validate_email', {
+            let res = await fetch(`${db}/validate_email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +73,7 @@ export const validatePassword = (email, password) => {
     return async dispatch => {
         dispatch(validatePasswordBegin());
         try {
-            let res = await fetch('http://localhost:3000/validate_password', {
+            let res = await fetch(`${db}/validate_password`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

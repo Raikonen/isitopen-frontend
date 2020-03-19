@@ -1,3 +1,5 @@
+import { db } from '../config/db'
+
 export const GET_RESTAURANT_NAMES_BEGIN = 'GET_RESTAURANT_NAMES_BEGIN';
 export const GET_RESTAURANT_NAMES_SUCCESS = 'GET_RESTAURANT_NAMES_SUCCESS';
 export const GET_RESTAURANT_NAMES_FAILURE = 'GET_RESTAURANT_NAMES_FAILURE';
@@ -38,7 +40,7 @@ export const getRestaurantNames = () => {
     return async dispatch => {
         dispatch(getRestaurantNamesBegin());
         try {
-            let res = await fetch('http://localhost:3000/stores')
+            let res = await fetch(`${db}/stores`)
             let data = await res.json()
             dispatch(getRestaurantNamesSuccess(data))
         } catch (error) {
@@ -52,7 +54,7 @@ export const getRestaurantNamesByDatetime = (inputDay, inputTime) => {
     return async dispatch => {
         dispatch(getRestaurantNamesByDatetimeBegin());
         try {
-            let res = await fetch('http://localhost:3000/filter', {
+            let res = await fetch(`${db}/filter`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

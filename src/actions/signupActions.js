@@ -1,3 +1,4 @@
+import { db } from '../config/db'
 import { setUser } from "./authActions";
 
 export const SIGNUP_BEGIN = 'SIGNUP_BEGIN';
@@ -23,7 +24,7 @@ export const signup = (email, password) => {
   return async dispatch => {
     dispatch(signupBegin());
     try {
-      let res = await fetch('http://localhost:3000/add_user', {
+      let res = await fetch(`${db}/add_user`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

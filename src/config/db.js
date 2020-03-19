@@ -1,0 +1,1 @@
+export const db = 'https://isitopen-api.herokuapp.com'
