@@ -77,16 +77,7 @@ const ResTable = (props) => {
         <h2 style={{ textAlign: 'center', color: 'teal', padding: '0.5em' }}>Is It Open?</h2>
 
         {/* Form Component */}
-        <Form onSubmit={(e) => e.preventDefault()}>
-            <Row>
-                <Col>
-                    <Form.Group controlId="resName">
-                        <Form.Control type="text" value={inputs.name} name="name"
-                            placeholder="Search name" onChange={handleInputChange} />
-                    </Form.Group>
-                </Col>
-            </Row>
-        </Form>
+        <h3 style={{ textAlign: 'center', color: 'teal', padding: '0.5em' }}>Filter by date and time</h3>
         <Form style={{ paddingBottom: '1rem' }} onSubmit={handleFilterByDatetime}>
             <Row className="justify-content-md-center">
                 <Col md={6}>
@@ -102,12 +93,12 @@ const ResTable = (props) => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Row className="justify-content-md-end" style={{ marginBottom: "1rem" }}>
+            <Row style={{ textAlignLast: "center", marginBottom: "1rem" }}>
                 <Col style={{ textAlign: "end" }}>
                     <Button type="submit">
                         Search
                     </Button>
-                    {` `}
+                    {`  `}
                     <Button onClick={handleReset}>
                         Reset
                     </Button>
@@ -117,8 +108,8 @@ const ResTable = (props) => {
 
         {/* Table Component */}
         <PaginationProvider pagination={paginationFactory(options)}>
-            {({ paginationProps, paginationTableProps}) => (
-                <div>
+            {({ paginationProps, paginationTableProps }) => (
+                <Container>
                     <div style={{ marginBottom: "-2.5rem" }}>
                         {hasFiltered && filteredRes.length === 0
                             ? <Container style={{ height: '50px' }} />
@@ -132,6 +123,15 @@ const ResTable = (props) => {
                             {...paginationProps}
                         />
                     </div>
+
+                    <Form onSubmit={(e) => e.preventDefault()}>
+                        <Col>
+                            <Form.Group controlId="resName">
+                                <Form.Control type="text" value={inputs.name} name="name"
+                                    placeholder="Search name" onChange={handleInputChange} />
+                            </Form.Group>
+                        </Col>
+                    </Form>
                     <BootstrapTable
                         keyField="sname"
                         data={hasFiltered ? filteredRes : props.restaurants}
@@ -143,7 +143,7 @@ const ResTable = (props) => {
                         condensed
                         noDataIndication="Table is Empty"
                     />
-                </div>
+                </Container>
             )}
         </PaginationProvider>
     </Container>
