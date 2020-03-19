@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ISITOPEN-FRONTEND
+
+My attempt at Glints coding test, part 2. https://gist.github.com/seahyc/d013a8f8f1c1be52513cf7b77cce6e81
+
+## Usage
 
 ## Available Scripts
 
