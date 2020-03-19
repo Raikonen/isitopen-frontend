@@ -1,0 +1,12 @@
+table caption {
+    caption-side: top;
+}
+
+.react-bs-table-no-data {
+    text-align: center;
+}
+
+.react-bootstrap-table-page-btns-ul {
+    float: right;
+    margin-top: 0px !important;
+}
